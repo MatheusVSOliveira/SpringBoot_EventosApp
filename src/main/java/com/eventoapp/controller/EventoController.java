@@ -46,6 +46,9 @@ public class EventoController {
 		Evento evento = eventoRepository.findByCodigo(codigo);
 		ModelAndView modelAndView = new ModelAndView("evento/detalhesevento");
 		modelAndView.addObject("evento", evento);
+		
+		Iterable<Convidado> convidados = convidadoRepository.findByEvento(evento);
+		modelAndView.addObject("convidados", convidados);
 		return modelAndView;
 	}
 	
