@@ -59,12 +59,14 @@
 			<tr>
 				<th>Nome do convidado</th>
 				<th>RG</th>
+				<th>Deletar</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="convidado : ${convidados}">
 				<td><span th:text="${convidado.nomeConvidado}"></span></td>
 				<td><span th:text="${convidado.rg}"></span></td>
+				<td><a th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}"><i class="material-icons left">delete_forever</i></a></td>
 			</tr>
 		</tbody>
 	</table>
